@@ -1,0 +1,233 @@
+.about-me-section {
+  padding: 6rem 1rem;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-me-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5.5vw, 3.2rem); /* Increased from clamp(1.8rem, 5vw, 2.8rem) */
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-title.animate {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.title-icon {
+  color: #1a73e8;
+  font-size: 1.2em;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #4a5568;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.tab-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  border: 1px solid #e2e8f0;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-button.animate {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.tab-button:nth-child(1) { animation-delay: 0.2s; }
+.tab-button:nth-child(2) { animation-delay: 0.4s; }
+.tab-button:nth-child(3) { animation-delay: 0.6s; }
+
+.tab-button:hover {
+  background: rgba(26, 115, 232, 0.1);
+  color: #1a73e8;
+  border-color: #1a73e8;
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background: #1a73e8;
+  color: white;
+  border-color: #1a73e8;
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.2);
+  transform: translateY(-2px);
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: #1a73e8;
+  border-radius: 3px;
+}
+
+.tab-button svg {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.tab-button:hover svg {
+  transform: scale(1.1);
+}
+
+.content-container {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-wrapper {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .about-me-section {
+    padding: 5rem 1rem;
+  }
+  
+  .tab-container {
+    gap: 0.8rem;
+  }
+  
+  .tab-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .content-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-me-section {
+    padding: 4rem 1rem;
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+  }
+  
+  .tab-container {
+    margin-bottom: 2rem;
+  }
+  
+  .tab-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .content-container {
+    min-height: 300px;
+  }
+  
+  .section-title {
+    font-size: 2.5rem; /* Increased from 2.2rem */
+  }
+}
+
+@media (max-width: 576px) {
+  .about-me-section {
+    padding: 3rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem; /* Increased from 1.8rem */
+  }
+  
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .tab-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .tab-button {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+    padding: 0.8rem;
+  }
+  
+  .content-container {
+    padding: 1rem;
+  }
+}

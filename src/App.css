@@ -1,0 +1,36 @@
+/* App.css */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-top: 70px; /* Adjust this value based on your navbar height */
+  width: 100%;
+}
+
+.section {
+  min-height: 100vh;
+  padding: 2rem;
+  scroll-margin-top: 70px; /* Prevents navbar from covering section content when scrolling */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 60px; /* Slightly less on mobile if navbar is smaller */
+  }
+  
+  .section {
+    scroll-margin-top: 60px;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 1rem;
+  }
+}

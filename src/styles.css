@@ -1,0 +1,148 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Navbar styles */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  nav .nav-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  nav button:hover {
+    color: #60a5fa; /* Light blue hover effect */
+  }
+  
+  /* Section styles */
+  section {
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  /* Intro section */
+  .intro {
+    background-color: #f3f4f6; /* Light gray */
+    text-align: center;
+  }
+  
+  .intro h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .intro p {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+  }
+  
+  .intro p.cta {
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+  }
+  
+  /* Services section */
+  #services {
+    background-color: #ffffff; /* White */
+    text-align: center;
+  }
+  
+  #services h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  #services p {
+    margin-top: 1rem;
+  }
+  
+  /* Experience section */
+  #experience {
+    background-color: #e5e7eb; /* Slightly darker gray */
+    text-align: center;
+  }
+  
+  #experience h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  #experience p {
+    margin-top: 1rem;
+  }
+  
+  /* Contact section */
+  #contact {
+    background-color: #ffffff; /* White */
+    text-align: center;
+  }
+  
+  #contact h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  #contact p {
+    margin-top: 1rem;
+  }
+  
+  /* About Me section */
+  #about {
+    background-color: #e5e7eb; /* Slightly darker gray */
+    text-align: center;
+  }
+  
+  #about h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  #about p {
+    margin-top: 1rem;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    nav .nav-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav button {
+      margin: 0.5rem 0;
+    }
+  
+    .intro h1 {
+      font-size: 2rem;
+    }
+  
+    .intro p {
+      font-size: 1rem;
+    }
+  
+    section h2 {
+      font-size: 1.5rem;
+    }
+  }
