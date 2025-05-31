@@ -6,7 +6,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,15 +19,25 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     const emailSubject = encodeURIComponent('Contact Form Submission');
-    const emailBody = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`);
+    const emailBody = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`
+    );
     const emailUrl = `mailto:erandarandika9@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-    
-    window.location.href = emailUrl;
-    
-    setStatus({ type: 'success', message: 'Opening email client...' });
+
+    try {
+      window.location.href = emailUrl;
+      setStatus({ type: 'success', message: 'Opening email client...' });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Failed to open email client. Please email erandarandika9@gmail.com directly.',
+      });
+    }
+
     setFormData({ name: '', email: '', message: '' });
+    setTimeout(() => setStatus(''), 5000); // Clear status after 5 seconds
     setIsSubmitting(false);
   };
 
@@ -38,7 +48,7 @@ const Contact = () => {
           <h2>Get In Touch</h2>
           <p className="subtitle">Have a project in mind or want to discuss opportunities? Let's connect!</p>
         </div>
-        
+
         <div className="contact-content">
           <form onSubmit={sendEmail} className="contact-form">
             <div className="form-group floating-label">
@@ -50,10 +60,11 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className={formData.name ? 'has-value' : ''}
+                aria-label="Your Name"
               />
               <label htmlFor="name">Your Name</label>
             </div>
-            
+
             <div className="form-group floating-label">
               <input
                 type="email"
@@ -63,10 +74,11 @@ const Contact = () => {
                 onChange={handleChange}
                 required
                 className={formData.email ? 'has-value' : ''}
+                aria-label="Your Email"
               />
               <label htmlFor="email">Your Email</label>
             </div>
-            
+
             <div className="form-group floating-label">
               <textarea
                 name="message"
@@ -76,10 +88,11 @@ const Contact = () => {
                 rows="5"
                 required
                 className={formData.message ? 'has-value' : ''}
+                aria-label="Your Message"
               />
               <label htmlFor="message">Your Message</label>
             </div>
-            
+
             <button type="submit" className="submit-btn" disabled={isSubmitting}>
               {isSubmitting ? (
                 'Sending...'
@@ -89,14 +102,14 @@ const Contact = () => {
                 </>
               )}
             </button>
-            
+
             {status && (
               <div className={`status-message ${status.type}`}>
                 {status.message}
               </div>
             )}
           </form>
-          
+
           <div className="contact-info">
             <div className="direct-contact">
               <h3>Direct Contact</h3>
@@ -104,17 +117,32 @@ const Contact = () => {
                 erandarandika9@gmail.com
               </a>
             </div>
-            
+
             <div className="social-links">
               <h3>Find Me On</h3>
               <div className="social-icons">
-                <a href="https://www.linkedin.com/in/eranda-randika-93453b284/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.linkedin.com/in/eranda-randika-93453b284/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                >
                   <FaLinkedin />
                 </a>
-                <a href="https://www.facebook.com/eranda.randika.908884/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.facebook.com/eranda.randika.908884/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                >
                   <FaFacebook />
                 </a>
-                <a href="https://twitter.com/yourprofile" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://x.com/eranda_randika" // Updated placeholder to a likely Twitter/X handle
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter"
+                >
                   <FaTwitter />
                 </a>
               </div>

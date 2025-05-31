@@ -15,7 +15,7 @@ const Navbar = () => {
       const sections = ['intro', 'AboutMe', 'experience', 'projects', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
-        if (element) {1
+        if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 100 && rect.bottom >= 100) {
             setActiveSection(section);
@@ -37,7 +37,7 @@ const Navbar = () => {
       const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: sectionPosition - navbarHeight,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
       setActiveSection(sectionId);
     } else {
@@ -55,46 +55,46 @@ const Navbar = () => {
           <span className="logo">ER</span>
           <span className="name">Eranda Randika</span>
         </div>
-        
-        <button 
-          className="nav-toggle" 
+
+        <button
+          className="nav-toggle"
           onClick={toggleMenu}
           aria-label={isOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isOpen}
         >
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
-        
+
         <div className={`nav-center ${isOpen ? 'open' : ''}`}>
-          <button 
+          <button
             onClick={() => scrollToSection('intro')}
             className={`nav-link ${activeSection === 'intro' ? 'active' : ''}`}
           >
             <FaHome className="nav-icon" />
             <span>Home</span>
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('AboutMe')}
             className={`nav-link ${activeSection === 'AboutMe' ? 'active' : ''}`}
           >
             <FaUser className="nav-icon" />
             <span>About</span>
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('experience')}
             className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`}
           >
             <FaBriefcase className="nav-icon" />
             <span>Experience</span>
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('projects')}
             className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`}
           >
             <FaCode className="nav-icon" />
             <span>Projects</span>
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('contact')}
             className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`}
           >
